@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "titulo": "Bache gigante en la 4ª calle",
+      "zona": "Colonia El Progreso",
+      "relato": "Ya son tres los carros que se han pinchado la llanta ahí. Hace meses que reportamos y nadie viene a tapar el hoyo.",
+      "firma": "Vecino de El Progreso",
+      "fecha": "3 semanas",
+      "estado": "sinrespuesta",
+      "foto": "",
+      "icono": "🕳️"
+    },
+    {
+      "titulo": "Alumbrado público apagado hace un mes",
+      "zona": "Barrio San Nicolás",
+      "relato": "Toda la cuadra está a oscuras desde hace semanas. Da miedo caminar de noche por ahí, sobre todo para las señoras que salen del trabajo tarde.",
+      "firma": "Vecina de San Nicolás",
+      "fecha": "5 días",
+      "estado": "revision",
+      "foto": "",
+      "icono": "💡"
+    },
+    {
+      "titulo": "Basurero clandestino junto a la escuela",
+      "zona": "Cantón Buena Vista",
+      "relato": "Llevaban meses tirando basura en el terreno baldío. Después de que lo publicamos, la municipalidad limpió el área en dos semanas.",
+      "firma": "Vecino de Buena Vista",
+      "fecha": "1 mes",
+      "estado": "respondida",
+      "foto": "",
+      "icono": "🗑️"
+    }
+  ]
+}

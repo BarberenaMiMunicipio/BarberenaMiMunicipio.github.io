@@ -1,0 +1,39 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/quejas"
+public_folder: "/images/quejas"
+
+locale: "es"
+
+collections:
+  - name: "quejas"
+    label: "Quejas ciudadanas"
+    label_singular: "Lista de quejas"
+    files:
+      - file: "content/quejas.json"
+        label: "Quejas ciudadanas"
+        name: "quejas"
+        description: "Cada fila de esta lista es una tarjeta que aparece en la sección 'Quejas ciudadanas' del sitio."
+        fields:
+          - label: "Quejas"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.titulo}} — {{fields.zona}}"
+            fields:
+              - { label: "Título corto", name: "titulo", widget: "string", hint: "Ej. Bache gigante en la 4ª calle" }
+              - { label: "Zona / colonia", name: "zona", widget: "string" }
+              - { label: "Relato del vecino", name: "relato", widget: "text" }
+              - { label: "Firma", name: "firma", widget: "string", default: "Vecino de Barberena", hint: "Ej. Vecino de El Progreso. No poner nombre completo si la persona pidió anonimato." }
+              - { label: "Fecha (texto libre)", name: "fecha", widget: "string", hint: "Ej. 3 semanas, 5 días, 12 de julio" }
+              - label: "Estado del caso"
+                name: "estado"
+                widget: "select"
+                default: "revision"
+                options:
+                  - { label: "En revisión", value: "revision" }
+                  - { label: "Respondida por la muni", value: "respondida" }
+                  - { label: "Sin respuesta", value: "sinrespuesta" }
+              - { label: "Foto (opcional)", name: "foto", widget: "image", required: false, hint: "Si no subes foto, se muestra el ícono de abajo." }
+              - { label: "Ícono si no hay foto", name: "icono", widget: "string", default: "📢", hint: "Un solo emoji, ej. 🕳️ 💡 🗑️ 🚦" }
