@@ -1,0 +1,145 @@
+:root {
+  --rojo: #e8452a;
+  --negro: #111110;
+  --blanco: #ffffff;
+  --gris-claro: #f4f3f1;
+  --gris: #6b6b68;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: var(--blanco); color: var(--negro); overflow-x: hidden; }
+
+/* Estructura Header & Nav */
+header { background: var(--negro); position: fixed; top: 0; width: 100%; z-index: 200; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 0 3rem; height: 60px; max-width: 1400px; margin: 0 auto; }
+.nav-logo a { text-decoration: none; color: white; font-family: 'Barlow Condensed'; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.nav-links { display: flex; list-style: none; height: 100%; }
+.nav-links li { display: flex; align-items: center; }
+.nav-links a { text-decoration: none; color: rgba(255,255,255,0.55); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; padding: 0 1.2rem; height: 60px; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--blanco); border-color: var(--rojo); }
+.nav-fb { display: flex; align-items: center; text-decoration: none; background: var(--rojo); color: white; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.55rem 1.2rem; transition: background 0.2s; }
+.nav-fb:hover { background: #c93520; }
+
+/* Hamburguesa Móvil */
+.nav-burger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; background: none; border: none; cursor: pointer; z-index: 210; }
+.nav-burger span { display: block; width: 100%; height: 2px; background: white; transition: all 0.25s; }
+.nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-links-mobile { display: none; position: fixed; top: 60px; left: 0; width: 100%; background: var(--negro); flex-direction: column; list-style: none; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; z-index: 199; }
+.nav-links-mobile.open { display: flex; max-height: 500px; }
+.nav-links-mobile li { border-top: 1px solid rgba(255,255,255,0.08); }
+.nav-links-mobile a { display: block; padding: 1.2rem 1.5rem; text-decoration: none; color: rgba(255,255,255,0.75); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+
+/* Nueva Sección: Nuestra Postura */
+.postura-editorial { padding: 4.5rem 2rem; background: var(--gris-claro); text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.postura-container { max-width: 700px; margin: 0 auto; }
+.postura-destacado { font-family: 'Lora', serif; font-size: 2.2rem; font-style: italic; color: var(--negro); line-height: 1.3; font-weight: 400; }
+.postura-destacado span { color: var(--rojo); font-weight: 600; font-style: normal; font-family: 'Barlow Condensed'; text-transform: uppercase; font-size: 2.4rem; }
+
+/* Carrusel Optimizado */
+.pilares { padding: 5rem 0; background: var(--blanco); }
+.pilares-header { text-align: center; margin-bottom: 3rem; }
+.section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rojo); font-weight: 700; display: block; margin-bottom: 0.75rem; }
+.pilares-header h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2.6rem; font-weight: 800; text-transform: uppercase; }
+.pilares-carousel { position: relative; max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; overflow: hidden; }
+.pilares-grid { display: flex; gap: 0; transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform; }
+.pilar { flex: 0 0 100%; background: var(--blanco); padding: 3.5rem 2rem; text-align: center; border: 1px solid rgba(0,0,0,0.05); transition: background 0.3s, color 0.3s; }
+.pilar:hover { background: var(--negro); color: white; }
+.pilar-icon { font-size: 2.5rem; margin-bottom: 1.2rem; display: block; }
+.pilar-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.8rem; }
+.pilar-desc { font-size: 0.95rem; color: var(--gris); line-height: 1.6; font-weight: 300; max-width: 500px; margin: 0 auto; }
+.pilar:hover .pilar-desc { color: rgba(255,255,255,0.6); }
+.pilares-dots { display: flex; justify-content: center; gap: 0.6rem; margin-top: 2rem; }
+.pilares-dots .dot { width: 9px; height: 9px; border-radius: 50%; border: none; background: rgba(0,0,0,0.15); cursor: pointer; transition: background 0.3s; }
+.pilares-dots .dot.active { background: var(--rojo); }
+
+/* Secciones de Contenido Común (Quejas, Historia, Participa) */
+.quejas { padding: 5rem 2rem; background: var(--gris-claro); max-width: 1100px; margin: 0 auto; }
+.quejas-header { text-align: center; margin-bottom: 3.5rem; }
+.quejas-header h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2.6rem; font-weight: 800; text-transform: uppercase; }
+.quejas-header p { max-width: 560px; margin: 1rem auto 0; color: var(--gris); font-size: 1rem; font-weight: 300; }
+.quejas-feed { display: flex; flex-direction: column; gap: 3rem; }
+
+.queja { background: var(--blanco); display: grid; grid-template-columns: 240px 1fr; gap: 0; box-shadow: 0 12px 40px rgba(17,17,16,0.04); position: relative; border-left: 4px solid var(--rojo); }
+.queja-media { background: var(--negro); display: flex; align-items: center; justify-content: center; min-height: 200px; position: relative; }
+.queja-media .icono { font-size: 3.5rem; }
+.queja-media .caption { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.5rem 0.75rem; font-family: 'Barlow Condensed'; }
+.queja-body { padding: 2.5rem; position: relative; }
+.queja-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.8rem; }
+.queja-zona { font-family: 'Barlow Condensed'; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rojo); }
+.queja-fecha { font-size: 0.75rem; color: var(--gris); }
+.queja h3 { font-family: 'Barlow Condensed'; font-size: 1.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.7rem; }
+.queja p.relato { font-family: 'Lora', serif; font-style: italic; font-size: 1rem; line-height: 1.7; color: #33322f; }
+.queja-firma { margin-top: 1rem; font-size: 0.8rem; color: var(--gris); font-weight: 500; }
+
+.sello { position: absolute; top: 2.5rem; right: 2.5rem; font-family: 'Barlow Condensed'; font-weight: 800; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid; border-radius: 4px; padding: 0.3rem 0.6rem; transform: rotate(4deg); }
+.sello.revision { color: #b8860b; border-color: #b8860b; }
+.sello.sinrespuesta { color: var(--rojo); border-color: var(--rojo); }
+
+.quejas-cta { margin-top: 4rem; text-align: center; padding: 3rem 2rem; background: var(--negro); color: white; }
+.quejas-cta p { color: rgba(255,255,255,0.6); max-width: 500px; margin: 0 auto 1.5rem; font-weight: 300; font-size: 1rem; line-height: 1.6; }
+.cta-btn { display: inline-flex; align-items: center; background: var(--rojo); color: white; text-decoration: none; font-family: 'Barlow Condensed'; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2.5rem; border: none; cursor: pointer; transition: background 0.2s; }
+.cta-btn:hover { background: #c93520; }
+.cta-btn-outline { display: inline-flex; align-items: center; background: transparent; color: white; text-decoration: none; font-family: 'Barlow Condensed'; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2.5rem; border: 1px solid rgba(255,255,255,0.3); transition: all 0.2s; }
+.cta-btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+/* Bloque Manifiesto Interno */
+.manifiesto { display: grid; grid-template-columns: 1fr 2fr; min-height: calc(100vh - 120px); }
+.manifiesto-sidebar { background: var(--negro); padding: 5rem 3rem; display: flex; flex-direction: column; justify-content: center; }
+.manifiesto-label { font-family: 'Barlow Condensed'; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rojo); font-weight: 700; margin-bottom: 1rem; }
+.manifiesto-tagline { font-family: 'Lora'; font-size: 1.8rem; color: var(--blanco); line-height: 1.4; font-style: italic; }
+.manifiesto-content { padding: 5rem; background: var(--gris-claro); }
+.manifiesto-title { font-family: 'Barlow Condensed'; font-size: 3.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 2rem; line-height: 1.1; }
+.manifiesto-title span { color: var(--rojo); }
+.manifiesto-text { font-size: 1.05rem; line-height: 1.85; color: #444442; font-weight: 300; max-width: 640px; }
+.manifiesto-text p { margin-bottom: 1.5rem; }
+.manifiesto-text h3 { font-family: 'Barlow Condensed'; text-transform: uppercase; font-size: 1.5rem; margin: 2rem 0 1rem; color: var(--negro); }
+.manifiesto-details { margin: 2rem 0; background: var(--blanco); padding: 1rem 1.5rem; border: 1px solid rgba(0,0,0,0.06); }
+.manifiesto-details summary { cursor: pointer; font-family: 'Barlow Condensed'; font-weight: 700; text-transform: uppercase; color: var(--rojo); font-size: 1rem; }
+
+/* Bloque Historia / Raíces */
+.historia { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+.historia-header { text-align: center; margin-bottom: 4rem; }
+.historia-header h1 { font-family: 'Barlow Condensed'; font-size: 3rem; text-transform: uppercase; font-weight: 800; }
+.historia-grid { display: flex; flex-direction: column; gap: 1rem; }
+.historia-item { background: var(--gris-claro); padding: 1.5rem; border-radius: 4px; }
+.historia-item summary { display: flex; align-items: center; gap: 2rem; cursor: pointer; font-family: 'Barlow Condensed'; font-weight: 700; text-transform: uppercase; }
+.historia-year { font-size: 1.6rem; color: var(--rojo); font-weight: 800; width: 80px; block-size: auto; }
+.historia-text { padding: 1rem 0 0 100px; font-size: 0.95rem; line-height: 1.7; color: var(--gris); }
+.historia-note { margin-top: 3rem; font-size: 0.85rem; color: var(--gris); border-top: 1px solid rgba(0,0,0,0.1); padding-top: 1.5rem; }
+
+/* Participa Activamente */
+.participa { padding: 5rem 2rem; background: var(--gris-claro); }
+.participa-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.participa h2 { font-family: 'Barlow Condensed'; font-size: 2.8rem; font-weight: 800; text-transform: uppercase; line-height: 1.1; }
+.participa h2 span { color: var(--rojo); }
+.participa-items { display: flex; flex-direction: column; gap: 1.5rem; }
+.participa-item { display: flex; gap: 1.5rem; background: var(--blanco); padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+.participa-num { font-family: 'Barlow Condensed'; font-size: 2rem; font-weight: 800; color: var(--rojo); }
+.participa-text h4 { font-family: 'Barlow Condensed'; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 0.3rem; }
+.participa-text p { font-size: 0.9rem; color: var(--gris); line-height: 1.5; }
+
+/* Footer */
+footer { background: var(--negro); color: rgba(255,255,255,0.4); padding: 3rem 2rem; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; font-size: 0.8rem; }
+footer a { color: var(--rojo); text-transform: uppercase; text-decoration: none; font-weight: 600; }
+
+/* Utilidades Text Centering */
+.text-center { text-align: center; }
+
+/* Media Queries Responsivas */
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links, .nav-fb { display: none; }
+  .nav-burger { display: flex; }
+  .manifiesto { grid-template-columns: 1fr; }
+  .manifiesto-sidebar { padding: 3rem 2rem; }
+  .manifiesto-content { padding: 3rem 2rem; }
+  .participa-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .queja { grid-template-columns: 1fr; }
+  .sello { position: relative; top: 0; right: 0; display: inline-block; margin-top: 1.5rem; transform: none; }
+  .historia-text { padding-left: 0; }
+  .historia-item summary { gap: 1rem; }
+}
