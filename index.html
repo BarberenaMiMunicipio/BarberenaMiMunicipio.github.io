@@ -100,6 +100,94 @@
     </div>
   </div>
 
+
+<div class="wrapper">
+
+  <div class="section-title">LO QUE <span>PUBLICAMOS</span></div>
+
+  <div class="carousel" id="carousel">
+    <div class="carousel-track" id="track">
+      <div class="card">
+        <div class="icon">📢</div>
+        <h3>Quejas ciudadanas</h3>
+        <p>Voz a los vecinos que tienen algo que decir sobre su municipio.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🛍️</div>
+        <h3>Emprendedores</h3>
+        <p>Visibilidad para negocios y emprendimientos de Barberena.</p>
+      </div>
+      <div class="card">
+        <div class="icon">☀️</div>
+        <h3>Noticias positivas</h3>
+        <p>Cuando algo se hace bien en Barberena, también lo contamos.</p>
+      </div>
+    </div>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <div class="divider">pero también</div>
+
+  <div class="no-section">
+    <div class="section-title">LO QUE <span>NO</span> PUBLICAMOS</div>
+    <ul class="rules-list">
+      <li><span class="x">✕</span> Difamaciones, calumnias, chismes, etc.</li>
+      <li><span class="x">✕</span> Insultos y ataques personales.</li>
+      <li><span class="x">✕</span> Rumores sin fundamento.</li>
+      <li><span class="x">✕</span> Información falsa.</li>
+      <li><span class="x">✕</span> Contenido que busque hacer daño a otras personas.</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  const track = document.getElementById('track');
+  const dotsContainer = document.getElementById('dots');
+  const cards = track.children;
+  const total = cards.length;
+  let index = 0;
+  let autoplay;
+
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+  const dots = dotsContainer.children;
+
+  function update() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    [...dots].forEach((d, i) => d.classList.toggle('active', i === index));
+  }
+
+  function goTo(i) {
+    index = i;
+    update();
+    resetAutoplay();
+  }
+
+  function next() {
+    index = (index + 1) % total;
+    update();
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplay);
+    autoplay = setInterval(next, 4000);
+  }
+
+  const carousel = document.getElementById('carousel');
+  carousel.addEventListener('mouseenter', () => clearInterval(autoplay));
+  carousel.addEventListener('mouseleave', resetAutoplay);
+  carousel.addEventListener('touchstart', () => clearInterval(autoplay));
+  carousel.addEventListener('touchend', resetAutoplay);
+
+  resetAutoplay();
+</script>
+
   <div class="quejas" id="quejas">
     <div class="quejas-header">
       <span class="section-label">Rendición de cuentas</span>
