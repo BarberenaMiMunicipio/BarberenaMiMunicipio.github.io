@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historia de Barberena | Barberena Mi Municipio</title>
+  <meta name="description" content="De Corral de Piedra a San José de Barberena: la historia completa del municipio de Barberena, Santa Rosa, y el origen del lema 'de tishudos para tishudos'.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Barberena Mi Municipio">
+  <meta property="og:title" content="Historia de Barberena | Barberena Mi Municipio">
+  <meta property="og:description" content="De Corral de Piedra a San José de Barberena: la historia completa del municipio de Barberena, Santa Rosa, y el origen del lema 'de tishudos para tishudos'.">
+  <meta property="og:url" content="https://barberenamimunicipio.netlify.app/historia.html">
+  <meta property="og:image" content="https://barberenamimunicipio.netlify.app/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="canonical" href="https://barberenamimunicipio.netlify.app/historia.html">
+  <meta property="og:locale" content="es_GT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Historia de Barberena | Barberena Mi Municipio">
+  <meta name="twitter:description" content="De Corral de Piedra a San José de Barberena: la historia completa del municipio.">
+  <meta name="twitter:image" content="https://barberenamimunicipio.netlify.app/og-image.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%23e8452a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-family=%22Arial, sans-serif%22 font-weight=%22800%22 fill=%22white%22 text-anchor=%22middle%22>B</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rojo: #e8452a;
+      --negro: #111110;
+      --blanco: #ffffff;
+      --gris-claro: #f4f3f1;
+      --gris: #6b6b68;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background: var(--blanco); color: var(--negro); overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 200;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 3rem; height: 60px; background: var(--negro);
+    }
+    .nav-logo img { height: 36px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: rgba(255,255,255,0.55);
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 500; padding: 0 1.4rem; height: 60px;
+      display: flex; align-items: center;
+      border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blanco); border-color: var(--rojo); }
+    .nav-fb {
+      display: flex; align-items: center; gap: 0.5rem;
+      text-decoration: none; background: var(--rojo); color: white;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.55rem 1.2rem; transition: background 0.2s;
+    }
+    .nav-fb:hover { background: #c93520; }
+
+    .nav-burger {
+      display: none; flex-direction: column; justify-content: center; gap: 5px;
+      width: 32px; height: 32px; background: none; border: none; cursor: pointer;
+      z-index: 210;
+    }
+    .nav-burger span {
+      display: block; width: 100%; height: 2px; background: white;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-links-mobile {
+      display: none; position: fixed; top: 60px; left: 0; width: 100%;
+      background: var(--negro); flex-direction: column; list-style: none;
+      max-height: 0; overflow: hidden; transition: max-height 0.3s ease; z-index: 199;
+    }
+    .nav-links-mobile.open { max-height: 400px; }
+    .nav-links-mobile li { border-top: 1px solid rgba(255,255,255,0.08); }
+    .nav-links-mobile a {
+      display: block; padding: 1rem 1.5rem; text-decoration: none;
+      color: rgba(255,255,255,0.75); font-size: 0.85rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-weight: 500;
+    }
+    .nav-links-mobile a:active, .nav-links-mobile a:hover { color: var(--rojo); }
+
+    .hero {
+      margin-top: 60px; position: relative; width: 100%;
+      aspect-ratio: 820/312; overflow: hidden; max-height: 520px;
+    }
+    .hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(17,17,16,0.5) 0%, transparent 60%);
+    }
+    .hero-badge {
+      position: absolute; bottom: 2rem; left: 3rem;
+      background: var(--rojo); color: white;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em;
+      text-transform: uppercase; padding: 0.4rem 1rem;
+    }
+
+    .manifiesto { display: grid; grid-template-columns: 1fr 2fr; border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .manifiesto-sidebar {
+      background: var(--negro); padding: 4rem 3rem;
+      display: flex; flex-direction: column; justify-content: center; gap: 2rem;
+    }
+    .manifiesto-sidebar img { width: 140px; height: auto; }
+    .manifiesto-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rojo); font-weight: 700; }
+    .manifiesto-tagline { font-family: 'Lora', serif; font-size: 1.5rem; color: var(--blanco); line-height: 1.4; font-style: italic; }
+    .manifiesto-content { padding: 4rem; background: var(--gris-claro); }
+    .manifiesto-pretitle { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rojo); font-weight: 700; margin-bottom: 1.5rem; }
+    .manifiesto-title { font-family: 'Barlow Condensed', sans-serif; font-size: 2.8rem; font-weight: 800; text-transform: uppercase; color: var(--negro); line-height: 1; margin-bottom: 2rem; }
+    .manifiesto-title span { color: var(--rojo); }
+    .manifiesto-text { font-size: 1rem; line-height: 1.85; color: #444442; font-weight: 300; max-width: 580px; }
+    .manifiesto-text p + p { margin-top: 1.1rem; }
+    .manifiesto-text strong { color: var(--negro); font-weight: 500; }
+    .manifiesto-details { margin-top: 1.1rem; }
+    .manifiesto-details summary {
+      cursor: pointer; list-style: none; color: var(--rojo); font-weight: 500;
+      font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.08em;
+      text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .manifiesto-details summary::-webkit-details-marker { display: none; }
+    .manifiesto-details summary::after { content: '+'; font-size: 1.1rem; line-height: 1; transition: transform 0.2s; }
+    .manifiesto-details[open] summary::after { transform: rotate(45deg); }
+    .manifiesto-details[open] summary { margin-bottom: 1.1rem; }
+    .manifiesto-details-content p + p { margin-top: 1.1rem; }
+
+    .pilares { padding: 5rem 3rem; background: var(--blanco); }
+    .pilares-header { text-align: center; margin-bottom: 3.5rem; }
+    .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rojo); font-weight: 700; display: block; margin-bottom: 0.75rem; }
+    .pilares-header h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem; font-weight: 800; text-transform: uppercase; color: var(--negro); }
+    .pilares-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(0,0,0,0.08); max-width: 900px; margin: 0 auto; }
+    .pilar { background: var(--blanco); padding: 2.5rem 2rem; text-align: center; opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease, background 0.25s; }
+    .pilar.visible { opacity: 1; transform: translateY(0); }
+    .pilar:hover { background: var(--negro); }
+    .pilar:hover .pilar-title { color: var(--blanco); }
+    .pilar:hover .pilar-desc { color: rgba(255,255,255,0.55); }
+    .pilar-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .pilar-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--negro); margin-bottom: 0.6rem; transition: color 0.25s; }
+    .pilar-desc { font-size: 0.85rem; color: var(--gris); line-height: 1.6; font-weight: 300; transition: color 0.25s; }
+
+    .quejas { padding: 5rem 3rem 6rem; background: var(--gris-claro); max-width: 1000px; margin: 0 auto; }
+    .quejas-header { text-align: center; margin-bottom: 1rem; }
+    .quejas-header h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem; font-weight: 800; text-transform: uppercase; color: var(--negro); }
+    .quejas-header p { max-width: 560px; margin: 1rem auto 0; color: var(--gris); font-size: 0.95rem; line-height: 1.7; font-weight: 300; }
+    .quejas-feed { margin-top: 3.5rem; display: flex; flex-direction: column; gap: 2.75rem; }
+    .quejas-empty { text-align: center; color: var(--gris); font-size: 0.9rem; margin-top: 3.5rem; font-weight: 300; }
+
+    .queja { background: #faf7f1; display: grid; grid-template-columns: 220px 1fr; gap: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08); position: relative; opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .queja.visible { opacity: 1; transform: translateY(0); }
+    .queja:nth-child(even) { grid-template-columns: 1fr 220px; }
+    .queja:nth-child(even) .queja-media { order: 2; }
+    .queja:nth-child(odd) { transform: rotate(-0.4deg); }
+    .queja:nth-child(even) { transform: rotate(0.4deg); }
+    .queja.visible:nth-child(odd) { transform: rotate(-0.4deg) translateY(0); }
+    .queja.visible:nth-child(even) { transform: rotate(0.4deg) translateY(0); }
+
+    .queja-media { position: relative; overflow: hidden; background: repeating-linear-gradient(135deg, rgba(232,69,42,0.9) 0 14px, rgba(17,17,16,0.92) 14px 28px); display: flex; align-items: center; justify-content: center; min-height: 190px; }
+    .queja-media img { width: 100%; height: 100%; object-fit: cover; }
+    .queja-media .icono { font-size: 3.4rem; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4)); }
+    .queja-media .caption { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.85); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.45rem 0.75rem; font-family: 'Barlow Condensed', sans-serif; }
+
+    .queja-body { padding: 2rem 2.25rem; position: relative; }
+    .queja-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .queja-zona { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rojo); }
+    .queja-fecha { font-size: 0.72rem; color: var(--gris); }
+    .queja-fecha::before { content: '·'; margin-right: 0.75rem; color: var(--gris); }
+    .queja h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.6rem; line-height: 1.15; }
+    .queja p.relato { font-family: 'Lora', serif; font-style: italic; font-size: 0.95rem; line-height: 1.7; color: #33322f; max-width: 480px; }
+    .queja p.relato::before { content: '\201C'; }
+    .queja p.relato::after { content: '\201D'; }
+    .queja-firma { margin-top: 0.9rem; font-size: 0.78rem; color: var(--gris); font-weight: 500; }
+
+    .sello { position: absolute; top: 1.4rem; right: 1.6rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid; border-radius: 4px; padding: 0.3rem 0.6rem; transform: rotate(6deg); opacity: 0.85; }
+    .sello.revision { color: #b8860b; border-color: #b8860b; }
+    .sello.respondida { color: #2e7d32; border-color: #2e7d32; }
+    .sello.sinrespuesta { color: var(--rojo); border-color: var(--rojo); }
+
+    .quejas-cta { margin-top: 3.5rem; text-align: center; padding: 2.5rem; background: var(--negro); }
+    .quejas-cta p { color: rgba(255,255,255,0.55); font-size: 0.9rem; max-width: 460px; margin: 0 auto 1.25rem; line-height: 1.7; font-weight: 300; }
+    .quejas-cta a { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--rojo); color: white; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 2.2rem; }
+
+    @media (max-width: 640px) {
+      .quejas { padding: 3rem 1.5rem 4rem; }
+      .queja, .queja:nth-child(even) { grid-template-columns: 1fr; transform: none; }
+      .queja.visible, .queja.visible:nth-child(odd), .queja.visible:nth-child(even) { transform: none; }
+      .queja:nth-child(even) .queja-media { order: 0; }
+      .sello { position: static; display: inline-block; margin-bottom: 0.75rem; transform: rotate(-2deg); }
+    }
+
+    .historia { padding: 5rem 3rem; background: var(--gris-claro); }
+    .historia-header { text-align: center; margin-bottom: 3rem; }
+    .historia-header h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem; font-weight: 800; text-transform: uppercase; color: var(--negro); }
+    .historia-grid { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.5rem; }
+    .historia-item { border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 0.75rem; }
+    .historia-item summary {
+      display: grid; grid-template-columns: 110px 1fr auto; gap: 1.5rem; align-items: center;
+      cursor: pointer; list-style: none; padding: 0.75rem 0;
+    }
+    .historia-item summary::-webkit-details-marker { display: none; }
+    .historia-item summary::after { content: '+'; font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; color: var(--rojo); transition: transform 0.2s; }
+    .historia-item[open] summary::after { transform: rotate(45deg); }
+    .historia-year { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--rojo); text-align: right; }
+    .historia-item summary h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--negro); }
+    .historia-text { padding: 0 0 0.5rem 110px; }
+    .historia-text p { font-size: 0.9rem; color: var(--gris); line-height: 1.7; font-weight: 300; }
+    @media (max-width: 600px) {
+      .historia-item summary { grid-template-columns: 70px 1fr auto; }
+      .historia-text { padding-left: 70px; }
+    }
+    .historia-note { max-width: 900px; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08); font-size: 0.85rem; color: var(--gris); line-height: 1.8; font-weight: 300; }
+    .historia-note strong { color: var(--negro); font-weight: 500; }
+
+    .cta { background: var(--negro); padding: 5rem 3rem; text-align: center; }
+    .cta-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rojo); font-weight: 700; display: block; margin-bottom: 1rem; }
+    .cta h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; text-transform: uppercase; color: var(--blanco); line-height: 1.1; margin-bottom: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .cta p { color: rgba(255,255,255,0.45); font-size: 0.95rem; font-weight: 300; max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.7; }
+    .cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 0.75rem; background: var(--rojo); color: white; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2.5rem; transition: background 0.2s, transform 0.2s; }
+    .cta-btn:hover { background: #c93520; transform: translateY(-2px); }
+    .cta-btn svg { width: 20px; height: 20px; fill: white; }
+    .cta-btn-outline { display: inline-flex; align-items: center; gap: 0.75rem; background: transparent; color: white; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2.5rem; border: 1px solid rgba(255,255,255,0.3); transition: border-color 0.2s, background 0.2s; }
+    .cta-btn-outline:hover { border-color: white; background: rgba(255,255,255,0.05); }
+
+    .participa { padding: 5rem 3rem; background: var(--gris-claro); }
+    .participa-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .participa h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2.5rem; font-weight: 800; text-transform: uppercase; color: var(--negro); line-height: 1.1; margin-bottom: 1.5rem; }
+    .participa h2 span { color: var(--rojo); }
+    .participa p { font-size: 0.95rem; color: var(--gris); line-height: 1.8; font-weight: 300; margin-bottom: 1rem; }
+    .participa-items { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+    .participa-item { display: flex; gap: 1rem; align-items: flex-start; opacity: 0; transform: translateX(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .participa-item.visible { opacity: 1; transform: translateX(0); }
+    .participa-num { font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--rojo); line-height: 1; flex-shrink: 0; width: 36px; }
+    .participa-text h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+    .participa-text p { font-size: 0.85rem; margin-bottom: 0; }
+
+    footer { background: var(--negro); padding: 2.5rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06); }
+    footer img { height: 40px; width: auto; opacity: 0.8; }
+    footer p { font-size: 0.75rem; color: rgba(255,255,255,0.25); text-align: right; }
+    footer a { color: var(--rojo); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .manifiesto { grid-template-columns: 1fr; }
+      .manifiesto-sidebar { padding: 2.5rem 2rem; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 1.5rem; }
+      .manifiesto-content { padding: 2.5rem 2rem; }
+      .pilares-grid { grid-template-columns: 1fr 1fr; }
+      .participa-inner { grid-template-columns: 1fr; gap: 2rem; }
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .nav-fb { display: none; }
+      .pilares { padding: 3rem 1.5rem; }
+      .cta { padding: 3rem 1.5rem; }
+      .participa { padding: 3rem 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .pilares-grid { grid-template-columns: 1fr; }
+      .hero { aspect-ratio: 4/3; max-height: 300px; }
+      .hero-badge { left: 1.5rem; bottom: 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; }
+      footer p { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="https://barberenamimunicipio.github.io/images/quejas/logo1.webp" alt="Barberena Mi Municipio">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#manifiesto">Manifiesto</a></li>
+      <li><a href="#quejas">Quejas</a></li>
+      <li><a href="historia.html">Historia</a></li>
+      <li><a href="#participa">Participa</a></li>
+      <li><a href="mailto:barberenamimunicipio@proton.me?subject=Denuncia%20%2F%20Queja%20ciudadana&body=Hola%2C%20quiero%20reportar%20lo%20siguiente%3A%0A%0ALugar%3A%20%0AFecha%3A%20%0ADescripci%C3%B3n%3A%20">Contacto</a></li>
+    </ul>
+    <a href="https://www.facebook.com/BarberenaMiMunicipio" target="_blank" class="nav-fb">Facebook →</a>
+    <button class="nav-burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <ul class="nav-links-mobile" id="navMobile">
+    <li><a href="#manifiesto">Manifiesto</a></li>
+    <li><a href="#quejas">Quejas</a></li>
+    <li><a href="historia.html">Historia</a></li>
+    <li><a href="#participa">Participa</a></li>
+    <li><a href="mailto:barberenamimunicipio@proton.me?subject=Denuncia%20%2F%20Queja%20ciudadana&body=Hola%2C%20quiero%20reportar%20lo%20siguiente%3A%0A%0ALugar%3A%20%0AFecha%3A%20%0ADescripci%C3%B3n%3A%20">Contacto</a></li>
+    <li><a href="https://www.facebook.com/BarberenaMiMunicipio" target="_blank">Facebook →</a></li>
+  </ul>
+
+  <div class="hero">
+    <img src="images/quejas/portada.webp" alt="Barberena Mi Municipio">
+    <div class="hero-overlay"></div>
+    <div class="hero-badge">Nuestras raíces</div>
+  </div>
+
+  <div style="padding:1.5rem 3rem 0;max-width:900px;margin:0 auto;">
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--rojo);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">← Volver al inicio</a>
+  </div>
+
+  <div class="historia" id="historia">
+    <div class="historia-header">
+      <span class="section-label">Nuestras raíces</span>
+      <h2>Historia de Barberena</h2>
+    </div>
+    <div class="historia-grid">
+      <details class="historia-item" open>
+        <summary><span class="historia-year">Colonia</span><h4>De Corral de Piedra a San José de Barberena</h4></summary>
+        <div class="historia-text">
+          <p>En la época colonial, el territorio era una doctrina de los frailes mercedarios y se conocía como <strong>Corral de Piedra</strong>. Tras la independencia de Centroamérica, quedó bajo el Circuito de Cuajiniquilapa para la impartición de justicia.</p>
+        </div>
+      </details>
+      <details class="historia-item">
+        <summary><span class="historia-year">1879</span><h4>Se crea el municipio</h4></summary>
+        <div class="historia-text">
+          <p>El 20 de diciembre de 1879, por acuerdo gubernativo, se crea el municipio agrupando Corral de Piedra, El Pino, Buena Vista, Cerro Redondo, La Vega, Los Tarros, La Pastoría, San Juan Utapa, El Zapote, Tianzul y Pueblo Nuevo. El General Justo Rufino Barrios cambia el nombre a "San José de Barberena", que con el tiempo se acorta a Barberena.</p>
+        </div>
+      </details>
+      <details class="historia-item">
+        <summary><span class="historia-year">1913–1920</span><h4>Barberena, cabecera departamental</h4></summary>
+        <div class="historia-text">
+          <p>El 8 de marzo de 1913 un terremoto destruyó casi por completo Cuilapa, la cabecera de Santa Rosa. Durante siete años, Barberena asumió el rol de cabecera departamental mientras Cuilapa era reconstruida.</p>
+        </div>
+      </details>
+      <details class="historia-item">
+        <summary><span class="historia-year">1916–1917</span><h4>El Templo de Minerva</h4></summary>
+        <div class="historia-text">
+          <p>Se construye uno de los solo cuatro templos de este tipo que existen en Guatemala (junto a Chiquimula, Jalapa y Quetzaltenango), motivo de orgullo local hasta hoy.</p>
+        </div>
+      </details>
+      <details class="historia-item">
+        <summary><span class="historia-year">Hoy</span><h4>Un municipio en crecimiento</h4></summary>
+        <div class="historia-text">
+          <p>Con más de 47,000 habitantes (censo 2018), Barberena es uno de los 14 municipios de Santa Rosa. Ubicado sobre la carretera Interamericana CA-1, a 54 km de la capital, su economía gira principalmente alrededor del café y la agricultura.</p>
+        </div>
+      </details>
+    </div>
+    <p class="historia-note">
+      <strong>¿De dónde viene "tishudo"?</strong> Según el Diccionario de guatemaltequismos de Lisandro Sandoval, "tishudo/a" se le decía a quien cojeaba al andar. El apodo se le atribuye a los habitantes de Corral de Piedra y luego Barberena por las crianzas de cerdos que existieron en la zona, que generaban basureros donde se reproducían niguas causantes de esa cojera característica. De ahí, con orgullo y sin pena, nuestro lema: <em>"De tishudos para tishudos."</em>
+    </p>
+  </div>
+
+  
+
+  <div style="text-align:center;padding:0 3rem 4rem;background:var(--gris-claro);">
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:0.6rem;background:var(--negro);color:white;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:0.95rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.9rem 2.2rem;">← Volver al inicio</a>
+  </div>
+
+  <div class="cta" id="facebook">
+    <span class="cta-label">Únete a la comunidad</span>
+    <h2>Síguenos en<br>Facebook</h2>
+    <p>Miles de barberenenses ya participan. Comparte lo que sabes, opina y ayuda a construir una comunidad más informada.</p>
+    <div class="cta-btns">
+      <a href="https://www.facebook.com/BarberenaMiMunicipio" target="_blank" class="cta-btn">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Barberena Mi Municipio
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const burger = document.getElementById('navBurger');
+    const mobileMenu = document.getElementById('navMobile');
+    burger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', isOpen);
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => { document.location.href = '/admin/'; });
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
