@@ -1,6 +1,7 @@
 ---
-title: Bienvenida al blog de BMM
+title: Mercado de Barberena
 date: 2026-09-01
-excerpt: "Just so you know I love you "
+image: /images/quejas/IMG_20260711_185721.webp
+excerpt: Este es el mercado de Barberena. 😊
 ---
-Population of a townjjkk jackhammer 
+El mercado de Barberena se encuentra enfrente del parque.
