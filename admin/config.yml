@@ -38,3 +38,16 @@ collections:
                   - { label: "Sin respuesta", value: "sinrespuesta" }
               - { label: "Foto (opcional)", name: "foto", widget: "image", required: false, hint: "Si no subes foto, se muestra el ícono de abajo." }
               - { label: "Ícono si no hay foto", name: "icono", widget: "string", default: "📢", hint: "Un solo emoji, ej. 🕳️ 💡 🗑️ 🚦" }
+
+              - name: "blog"
+    label: "Entradas del blog"
+    label_singular: "Entrada"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Imagen destacada", name: "image", widget: "image", required: false }
+      - { label: "Resumen corto", name: "excerpt", widget: "text", required: false }
+      - { label: "Contenido", name: "body", widget: "markdown" }
