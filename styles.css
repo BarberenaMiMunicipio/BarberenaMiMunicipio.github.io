@@ -232,3 +232,29 @@
       footer { flex-direction: column; gap: 1rem; }
       footer p { text-align: center; }
       }
+/* Imagen destacada del post (la del layout post.html) */
+.blog-item-img,
+article > img:first-of-type {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Imágenes dentro del contenido del post (las que subes en el editor Markdown) */
+article img,
+.blog-lista img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+  display: block;
+}
+
+/* Imagen en las tarjetas del listado /blog/ */
+.blog-item-img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+}
