@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: BarberenaMiMunicipio.github.io
+  repo: BarberenaMiMunicipio
   branch: main
   site_domain: barberenamimunicipio.netlify.app
 media_folder: "images/quejas"
