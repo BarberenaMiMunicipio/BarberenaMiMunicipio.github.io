@@ -38,7 +38,6 @@ collections:
                   - { label: "Sin respuesta", value: "sinrespuesta" }
               - { label: "Foto (opcional)", name: "foto", widget: "image", required: false, hint: "Si no subes foto, se muestra el ícono de abajo." }
               - { label: "Ícono si no hay foto", name: "icono", widget: "string", default: "📢", hint: "Un solo emoji, ej. 🕳️ 💡 🗑️ 🚦" }
-
               - name: "blog"
     label: "Entradas del blog"
     label_singular: "Entrada"
