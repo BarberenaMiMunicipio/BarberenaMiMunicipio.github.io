@@ -41,7 +41,7 @@
 
   {% unless page.url == "/index.html" or page.url == "/" %}
   <div style="text-align:center; padding: 1.5rem 1rem 2.5rem;">
-    <a href="{{ '/index.html' | relative_url }}" style="display:inline-flex;align-items:center;gap:0.5rem;color:#e8452a;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">← Volver al inicio</a>
+    <a href="/" onclick="if(document.referrer && document.referrer.includes(window.location.hostname)){history.back();return false;}" style="display:inline-flex;align-items:center;gap:0.5rem;color:#e8452a;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">← Volver</a>
   </div>
   {% endunless %}
 
