@@ -7,7 +7,8 @@
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Barlow', sans-serif; background: var(--blanco); color: var(--negro); overflow-x: hidden; }
+    body { font-family: 'Barlow', sans-serif; background: var(--blanco); color: var(--negro); overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+    main { flex: 1; }
 
     nav {
       position: fixed; top: 0; width: 100%; z-index: 200;

@@ -353,7 +353,7 @@ hero_badge: "Barberena · Santa Rosa · Guatemala"
               {% assign mes_num = post.date | date: "%m" | minus: 1 %}
               <p class="blog-preview-fecha">{{ post.date | date: "%d" }} de {{ site.meses[mes_num] }} de {{ post.date | date: "%Y" }}</p>
               {% if post.excerpt %}
-                <p class="blog-preview-resumen">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+                <p class="blog-preview-resumen">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
               {% endif %}
             </div>
           </a>
