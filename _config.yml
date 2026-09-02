@@ -33,3 +33,23 @@ meses:
   - "Octubre"
   - "Noviembre"
   - "Diciembre"
+  meses:
+  - "Enero"
+  - "Febrero"
+  - "Marzo"
+  - "Abril"
+  - "Mayo"
+  - "Junio"
+  - "Julio"
+  - "Agosto"
+  - "Septiembre"
+  - "Octubre"
+  - "Noviembre"
+  - "Diciembre"
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
