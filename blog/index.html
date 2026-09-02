@@ -1,0 +1,144 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+
+<style>
+  .blog-listado {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  .blog-listado h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .blog-lista {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    padding: 0;
+  }
+
+  .blog-item {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  }
+
+  .blog-item a { text-decoration: none; color: inherit; display: block; }
+
+  .blog-item-titulo {
+    background: linear-gradient(135deg, #ff7a45, var(--rojo, #e8452a));
+    color: #fff;
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    padding: 0.9rem 0.8rem;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.25);
+  }
+
+  .blog-item-img {
+    width: 100%;
+    aspect-ratio: 1080 / 1244;
+    object-fit: cover;
+    display: block;
+  }
+
+  .blog-item-body { padding: 20px; }
+
+  .blog-item-fecha {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 8px;
+  }
+
+  .blog-item-resumen {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .blog-item-leer {
+    color: var(--rojo, #e8452a);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+  }
+
+  .blog-paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 40px;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .blog-paginacion a {
+    color: var(--rojo, #e8452a);
+    text-decoration: none;
+  }
+
+  .pag-numero { color: #666; }
+</style>
+
+<section class="blog-listado">
+  <h1>Blog de BMM</h1>
+
+  {% if paginator.posts.size == 0 %}
+    <p>Todavía no hay entradas publicadas.</p>
+  {% else %}
+    <ul class="blog-lista">
+      {% for post in paginator.posts %}
+        <li class="blog-item">
+          <a href="{{ post.url | relative_url }}">
+            <div class="blog-item-titulo">{{ post.title }}</div>
+            {% if post.image %}
+              <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="blog-item-img">
+            {% endif %}
+            <div class="blog-item-body">
+              {% assign mes_num = post.date | date: "%m" | minus: 1 %}
+              <p class="blog-item-fecha">{{ post.date | date: "%d" }} de {{ site.meses[mes_num] }} de {{ post.date | date: "%Y" }}</p>
+              {% if post.excerpt %}
+                <p class="blog-item-resumen">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+              {% endif %}
+              <span class="blog-item-leer">Leer más →</span>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <nav class="blog-paginacion">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}" class="pag-anterior">← Anteriores</a>
+      {% endif %}
+
+      <span class="pag-numero">{{ paginator.page }}/{{ paginator.total_pages }}</span>
+
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}" class="pag-siguiente">Siguientes →</a>
+      {% endif %}
+    </nav>
+  {% endif %}
+</section>
