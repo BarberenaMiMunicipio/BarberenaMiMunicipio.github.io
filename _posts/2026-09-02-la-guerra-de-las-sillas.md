@@ -1,21 +1,13 @@
 ---
-title: LA GUERRA DE LAS SILLAS
+title: "DENUNCIA ANÓNIMA: EL LLAMADO DEL ALCALDE"
 date: 2026-09-01T18:34:00.000-06:00
-image: /images/quejas/1000031331.png
-excerpt: >-
-  Regalar una silla de ruedas está bien. Es un gesto noble, necesario, humano.
-
-
-  Pero en Barberena hemos aprendido que ese gesto tiene una condición: si no hay video, no existió
+image: /images/quejas/1000031400.webp
+excerpt: El alcalde Pepe Rueda Vallejo hizo un llamado a la población de
+  Barberena para sumarse a la campaña de denuncia anónima a través de Crime
+  Stoppers, ante el incremento de hechos delictivos en el municipio.
 ---
-En los últimos años hemos visto a distintos políticos locales "regalar" sillas de ruedas. Casi siempre el mismo guion: la entrega, la sonrisa a cámara, el video editado, la publicación. Rara vez se sabe cómo llegó esa persona a necesitar la silla, o si volverá a tener quien la visite después de que se apaga la cámara.
+El alcalde Pepe Rueda Vallejo hizo un llamado a la población de Barberena para sumarse a la campaña de denuncia anónima a través de Crime Stoppers, ante el incremento de hechos delictivos en el municipio.
 
+"El silencio protege a los criminales", afirmó el alcalde en un video difundido en redes, donde reconoció que el crecimiento comercial de Barberena también ha atraído la atención del crimen, y que el miedo no debe ganarle la batalla al municipio.
 
-
-No es que regalar esté mal. Es que, al parecer, para cierta clase política un acto de ayuda solo cuenta si queda grabado. La necesidad de la persona pasa a segundo plano; lo que importa es que se vea.
-
-
-
-Hace unos días, la esposa de alguien también entregó una silla de ruedas...
-
-¿Cuántas de esas sillas se hubieran entregado si no hubiera cámara encendida?
+Se puede denunciar al 1561 (llamada) o al 3764-1561 (WhatsApp), sin necesidad de saldo y sin que quede registro de quién denuncia. Según el alcalde, la denuncia anónima busca que las personas vinculadas a hechos delictivos sean procesadas por las autoridades correspondientes.
