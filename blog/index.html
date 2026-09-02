@@ -130,16 +130,18 @@ permalink: /blog/
     </ul>
 
     {% if paginator.total_pages > 1 %}
-  <nav class="blog-paginacion">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | relative_url }}" class="pag-anterior">← Anteriores</a>
+      <nav class="blog-paginacion">
+        {% if paginator.previous_page %}
+          <a href="{{ paginator.previous_page_path | relative_url }}" class="pag-anterior">← Anteriores</a>
+        {% endif %}
+
+        <span class="pag-numero">{{ paginator.page }}/{{ paginator.total_pages }}</span>
+
+        {% if paginator.next_page %}
+          <a href="{{ paginator.next_page_path | relative_url }}" class="pag-siguiente">Siguientes →</a>
+        {% endif %}
+      </nav>
     {% endif %}
 
-    <span class="pag-numero">{{ paginator.page }}/{{ paginator.total_pages }}</span>
-
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | relative_url }}" class="pag-siguiente">Siguientes →</a>
-    {% endif %}
-  </nav>
-{% endif %}
+  {% endif %} <!-- SE AGREGO ESTE CIERRE FALTANTE PARA EL IF PRINCIPAL -->
 </section>
