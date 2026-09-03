@@ -2,8 +2,8 @@ backend:
   name: github
   repo: BarberenaMiMunicipio/BarberenaMiMunicipio.github.io
   branch: main
-  base_url: https://barberenamimunicipio.pages.dev
-  site_url: https://barberenamimunicipio.pages.dev
+  base_url: https://barberenamimunicipio.top
+  site_url: https://barberenamimunicipio.top
   auth_endpoint: api/auth
 media_folder: "images/quejas"
 public_folder: "/images/quejas"
