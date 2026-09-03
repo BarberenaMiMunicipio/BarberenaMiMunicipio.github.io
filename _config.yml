@@ -1,6 +1,7 @@
 title: Barberena Mi Municipio
 description: "Periodismo cívico hiperlocal en Barberena, Santa Rosa, Guatemala."
-url: "https://barberenamimunicipio.github.io"
+url: "https://barberenamimunicipio.top"
+baseurl: ""
 
 # Zona horaria oficial para Guatemala
 timezone: America/Guatemala
