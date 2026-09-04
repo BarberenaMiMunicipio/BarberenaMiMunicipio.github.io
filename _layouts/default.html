@@ -10,7 +10,7 @@
   <meta property="og:title" content="{{ page.title | default: 'Barberena Mi Municipio (BMM)' }}">
   <meta property="og:description" content="{{ page.description | default: 'De tishudos para tishudos. Entérate de todo lo que pasa en Barberena y El Cerinal: noticias, obras y el día a día de nuestra gente.' }}">
   <meta property="og:url" content="https://barberenamimunicipio.top{{ page.url }}">
-  <meta property="og:image" content="https://barberenamimunicipio.top{{ page.hero_image | default: '/images/portada.webp' }}">
+  <meta property="og:image" content="https://barberenamimunicipio.top{{ page.image | default: page.hero_image | default: '/images/portada.webp' }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <link rel="canonical" href="https://barberenamimunicipio.top{{ page.url }}">
@@ -18,7 +18,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page.title | default: 'Barberena Mi Municipio (BMM)' }}">
   <meta name="twitter:description" content="{{ page.description | default:'De tishudos para tishudos. Entérate de todo lo que pasa en Barberena y El Cerinal: noticias, obras y el día a día de nuestra gente.' }}">
-  <meta name="twitter:image" content="https://barberenamimunicipio.top{{ page.hero_image | default: '/images/portada.webp' }}">
+  <meta name="twitter:image" content="https://barberenamimunicipio.top{{ page.image | default: page.hero_image | default: '/images/portada.webp' }}">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
   <meta name="google-site-verification" content="rnI2_KGt4xMqGnZfDKDdzVr7GxNS1HKlzvXbb8d2ja4" />
