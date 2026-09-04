@@ -2,7 +2,7 @@
 title: SI NO HAY VIDEO, NO EXISTIÓ
 layout: post
 date: 2026-09-02T10:48:00.000-06:00
-image: /images/quejas/1000031552.webp
+image: /images/blog/1000031552.webp
 excerpt: Regalar una silla de ruedas está bien. Es un gesto noble, necesario y humano.
 ---
 Regalar una silla de ruedas está bien. Es un gesto noble, necesario y humano.
