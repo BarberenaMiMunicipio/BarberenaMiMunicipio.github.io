@@ -35,7 +35,7 @@
 
   {% unless page.show_hero == false %}
   <div class="hero">
-    <img src="{{ page.hero_image | default: '/images/portada.webp' | relative_url }}" alt="{{ page.hero_alt | default: 'Barberena Mi Municipio' }}">
+    <img src="{{ page.image | default: page.hero_image | default: '/images/portada.webp' | relative_url }}" alt="{{ page.hero_alt | default: 'Barberena Mi Municipio' }}">
     <div class="hero-overlay"></div>
     <div class="hero-badge">{{ page.hero_badge | default: 'Barberena · Santa Rosa · Guatemala' }}</div>
   </div>
