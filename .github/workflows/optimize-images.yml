@@ -1,0 +1,54 @@
+name: Optimizar imágenes
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - 'images/quejas/**'
+      - 'images/blog/**'
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    # Evita que el Action se dispare a sí mismo en un loop infinito
+    if: github.actor != 'github-actions[bot]'
+
+    steps:
+      - name: Clonar el repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Instalar herramientas de imagen
+        run: sudo apt-get update && sudo apt-get install -y jpegoptim optipng webp
+
+      - name: Comprimir imágenes nuevas o modificadas (sin cambiar formato)
+        run: |
+          IMAGES=$(git diff --name-only HEAD~1 HEAD -- 'images/quejas/*.jpg' 'images/quejas/*.jpeg' 'images/quejas/*.png' 'images/blog/*.jpg' 'images/blog/*.jpeg' 'images/blog/*.png' 2>/dev/null || true)
+
+          for img in $IMAGES; do
+            if [ -f "$img" ]; then
+              echo "Comprimiendo: $img"
+              case "$img" in
+                *.jpg|*.jpeg) jpegoptim --max=80 --strip-all "$img" ;;
+                *.png) optipng -o5 "$img" ;;
+              esac
+            fi
+          done
+
+          # Además, comprime sin pérdida cualquier .webp nuevo (por si ya subís webp directo)
+          WEBPS=$(git diff --name-only HEAD~1 HEAD -- 'images/quejas/*.webp' 'images/blog/*.webp' 2>/dev/null || true)
+          for img in $WEBPS; do
+            if [ -f "$img" ]; then
+              echo "Recomprimiendo WebP: $img"
+              cwebp -q 82 "$img" -o "$img.tmp" && mv "$img.tmp" "$img"
+            fi
+          done
+
+      - name: Commitear las imágenes optimizadas
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "Comprimir imágenes automáticamente [skip ci]"
+          git push
