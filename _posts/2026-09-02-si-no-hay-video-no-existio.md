@@ -2,11 +2,9 @@
 title: SI NO HAY VIDEO, NO EXISTIÓ
 layout: post
 date: 2026-09-02T10:48:00.000-06:00
-image: ""
+image: https://barberenamimunicipio.top/images/blog/1000031552.webp
 excerpt: Regalar una silla de ruedas está bien. Es un gesto noble, necesario y humano.
 ---
-![](/images/blog/1000031552.webp)
-
 Regalar una silla de ruedas está bien. Es un gesto noble, necesario y humano.
 
 Pero en Barberena hemos aprendido que ese gesto tiene una condición: si no hay video, no existió.
