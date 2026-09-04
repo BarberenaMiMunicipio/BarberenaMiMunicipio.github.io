@@ -5,7 +5,7 @@ image: /images/blog/1000031925.webp
 excerpt: ¡Vaya relajo con lo del pasaje, los bloqueos y la subida de los
   combustibles! La mera verdad es que la situación está fregada.
 ---
-SANTA ROSA | ¡Vaya relajo con lo del pasaje, los bloqueos y la subida de los combustibles! La mera verdad es que la situación está fregada.
+¡Vaya relajo con lo del pasaje, los bloqueos y la subida de los combustibles! La mera verdad es que la situación está fregada.
 
 Lo mismo de siempre: el pueblo afectado jodiendo al mismo pueblo. Unos piden a gritos que quiten de una vez por todas los impuestos al combustible, mientras otros brincan y cuestionan que sigan soltando esos subsidios millonarios que solo se van en puros cuentos.
 
