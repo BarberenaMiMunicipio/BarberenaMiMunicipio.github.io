@@ -17,4 +17,4 @@ Hace unos días, la esposa de alguien también entregó una silla de ruedas —y
 
 ¿Cuántas de esas sillas se hubieran entregado si no hubiera cámara encendida?
 
-\#Cerinal #BarberenaSantaRosa #SantaRosaGT #PoliticaGT
+\#Cerinal #Barberena #BarberenaSantaRosa #SantaRosaGT #BarberenaMiMunicipio #PoliticaGT
