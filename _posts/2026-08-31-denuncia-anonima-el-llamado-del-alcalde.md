@@ -12,4 +12,4 @@ El alcalde de Barberena, Pepe Rueda Vallejo hizo un llamado a la población de B
 
 Se puede denunciar al 1561 (llamada) o al 3764-1561 (WhatsApp), sin necesidad de saldo y sin que quede registro de quién denuncia. Según el alcalde, la denuncia anónima busca que las personas vinculadas a hechos delictivos sean procesadas por las autoridades correspondientes.
 
-Cerinal #Barberena #BarberenaSantaRosa #SantaRosaGT #BarberenaMiMunicipio
+\#Cerinal #Barberena #BarberenaSantaRosa #SantaRosaGT #BarberenaMiMunicipio
