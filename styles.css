@@ -266,7 +266,7 @@ article img,
 .ticker-track {
   display: inline-block;
   white-space: nowrap;
-  animation: scrollTicker 50s linear infinite;
+  animation: scrollTicker 110s linear infinite;
 }
 
 /* Pausa el movimiento cuando el usuario pasa el mouse para que pueda leer o hacer clic */
@@ -276,7 +276,7 @@ article img,
 
 .ticker-item {
   display: inline-block;
-  margin-right: 60px;
+  margin-right: 90px;
   color: #fff;
   text-decoration: none;
 }
