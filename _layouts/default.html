@@ -55,22 +55,5 @@
 
   {% include footer.html %}
 
-  <script>
-    const burger = document.getElementById('navBurger');
-    const mobileMenu = document.getElementById('navMobile');
-    burger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      burger.classList.toggle('open', isOpen);
-      burger.setAttribute('aria-expanded', isOpen);
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        burger.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-      });
-    });
-  </script>
-
 </body>
 </html>
