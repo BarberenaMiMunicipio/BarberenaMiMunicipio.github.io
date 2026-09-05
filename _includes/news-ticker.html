@@ -4,6 +4,12 @@
   </div>
 </div>
 
+<div class="news-ticker">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item">Cargando noticias de Barberena...</span>
+  </div>
+</div>
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -12,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
 
       const track = document.getElementById('tickerTrack');
-
       track.innerHTML = "";
 
       if (data.length === 0) {
@@ -23,9 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // Crear las noticias
       data.forEach(item => {
-
         const a = document.createElement('a');
-
         a.href = item.url;
         a.textContent = item.text;
         a.className = "ticker-item";
@@ -37,9 +40,9 @@ document.addEventListener("DOMContentLoaded", function() {
         track.appendChild(a);
       });
 
-      // Duplicar las noticias para crear el bucle
+      // Duplicar las noticias para crear el bucle (los clones no
+      // deben ser leídos dos veces por lectores de pantalla)
       const items = Array.from(track.children);
-
       items.forEach(item => {
         const clone = item.cloneNode(true);
         clone.setAttribute('aria-hidden', 'true');
@@ -47,54 +50,55 @@ document.addEventListener("DOMContentLoaded", function() {
       });
 
       /*
-       * Calculamos cuánto texto existe.
-       *
-       * Mientras más contenido haya,
-       * más tiempo tardará el recorrido.
+       * Mientras más contenido haya, más tarda el recorrido: en vez de
+       * confiar en una variable CSS (que el navegador no siempre relee
+       * una vez que la animación ya arrancó), inyectamos directamente
+       * un @keyframes nuevo con la distancia y la duración exactas ya
+       * calculadas. Esto es lo que garantiza que el movimiento arranque
+       * bien desde el primer render.
        */
       function calcularVelocidad() {
+        const distancia = track.scrollWidth / 2; // una sola "vuelta" de noticias
 
-        const distancia = track.scrollWidth / 2;
-
-        // Velocidad cómoda para lectura
         const pixelesPorSegundo =
           window.innerWidth <= 640 ? 24 : 32;
 
         let duracion = distancia / pixelesPorSegundo;
+        duracion = Math.max(duracion, 45); // nunca menos de 45s
 
-        // Nunca menos de 45 segundos
-        duracion = Math.max(duracion, 45);
+        const styleId = 'bmm-ticker-keyframes';
+        const anterior = document.getElementById(styleId);
+        if (anterior) anterior.remove();
 
-        track.style.setProperty(
-          '--ticker-duration',
-          duracion + 's'
-        );
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.textContent =
+          '@keyframes scrollTicker { from { transform: translateX(0); } ' +
+          'to { transform: translateX(-' + distancia + 'px); } }' +
+          '#tickerTrack { animation: scrollTicker ' + duracion + 's linear infinite; }';
+        document.head.appendChild(style);
       }
 
-      // Calcular al cargar
+      // Calcular al cargar, y de nuevo cuando las fuentes terminen de
+      // cargar (Barlow puede cambiar el ancho del texto al llegar)
       setTimeout(calcularVelocidad, 100);
-
-      // Recalcular si cambia el tamaño
-      window.addEventListener('resize', calcularVelocidad);
-
-      // Recalcular cuando carguen las fuentes
       if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(calcularVelocidad);
       }
 
+      // Recalcular si cambia el tamaño de pantalla
+      let resizeTimeout;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(calcularVelocidad, 200);
+      });
+
     })
-
     .catch(err => {
-
-      console.error(
-        "Error al cargar el ticker JSON:",
-        err
-      );
-
+      console.error("Error al cargar el ticker JSON:", err);
       document.getElementById('tickerTrack').innerHTML =
         '<span class="ticker-item">Información local al día.</span>';
-
     });
 
 });
-        </script>  
+</script>
