@@ -260,13 +260,19 @@ article img,
   font-size: 0.9rem;
   width: 100%;
   box-sizing: border-box;
-  border-bottom: 2px solid #e8452a;
+  border-bottom: 2px solid #e8452a; /* Un toque estético con tu color de acento */
 }
 
 .ticker-track {
   display: inline-block;
   white-space: nowrap;
+  animation: scrollTicker 110s linear infinite;
+}
 
+/* Pausa el movimiento cuando el usuario pasa el mouse para que pueda leer o hacer clic */
+.news-ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
 
 .ticker-item {
   display: inline-block;
@@ -280,27 +286,12 @@ article img,
   text-decoration: underline;
 }
 
-/* Noticias tipo denuncia */
-.ticker-denuncia {
-  border-left: 3px solid #e8452a;
-  padding-left: 8px;
-}
-
-/* Pausar para poder leer */
-.news-ticker:hover .ticker-track,
-.news-ticker:focus-within .ticker-track {
-  animation-play-state: paused;
-}
-
-
-@media (max-width: 640px) {
-
-  .news-ticker {
-    font-size: 0.82rem;
-    padding: 9px 12px;
+/* Animación de desplazamiento horizontal continuo */
+@keyframes scrollTicker {
+  0% {
+    transform: translateX(0);
   }
-
-  .ticker-item {
-    margin-right: 55px;
+  100% {
+    transform: translateX(-50%);
   }
-}
+                         }
