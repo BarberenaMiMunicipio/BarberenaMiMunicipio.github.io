@@ -1,0 +1,39 @@
+# .github/workflows/update-ticker.yml
+#
+# Actualiza assets/data/ticker.json cada hora juntando AGN, Prensa Libre
+# y Google News (filtrados a Santa Rosa/Barberena), y lo sube al repo.
+# También se puede correr a mano desde la pestaña "Actions" de GitHub.
+
+name: Actualizar ticker de noticias
+
+on:
+  schedule:
+    - cron: "15 * * * *"   # cada hora, en el minuto 15
+  workflow_dispatch: {}     # botón "Run workflow" manual
+
+permissions:
+  contents: write
+
+jobs:
+  update-ticker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install feedparser
+
+      - name: Generar ticker.json
+        run: python scripts/fetch_ticker.py
+
+      - name: Commitear si hay cambios
+        run: |
+          git config user.name "bmm-ticker-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/data/ticker.json
+          git diff --cached --quiet || git commit -m "Actualiza ticker de noticias"
+          git push
