@@ -264,27 +264,16 @@ article img,
 }
 
 .ticker-track {
-  display: flex;
-  width: max-content;
+  display: inline-block;
   white-space: nowrap;
 
-  /* JavaScript calcula este valor */
+  /* La duración será calculada por JavaScript */
   animation: scrollTicker var(--ticker-duration, 90s) linear infinite;
-
-  will-change: transform;
-}
-
-.ticker-group {
-  display: flex;
-  flex-shrink: 0;
-  white-space: nowrap;
 }
 
 .ticker-item {
   display: inline-block;
-  flex-shrink: 0;
-  margin-right: 70px;
-
+  margin-right: 60px;
   color: #fff;
   text-decoration: none;
 }
@@ -294,31 +283,30 @@ article img,
   text-decoration: underline;
 }
 
-/* Noticias marcadas como denuncia */
+/* Noticias tipo denuncia */
 .ticker-denuncia {
   border-left: 3px solid #e8452a;
   padding-left: 8px;
 }
 
-/* Pausar al colocar el mouse encima */
+/* Pausar para poder leer */
 .news-ticker:hover .ticker-track,
 .news-ticker:focus-within .ticker-track {
   animation-play-state: paused;
 }
 
-/* Animación */
 @keyframes scrollTicker {
-  from {
+  0% {
     transform: translateX(0);
   }
 
-  to {
+  100% {
     transform: translateX(-50%);
   }
 }
 
-/* Móvil */
 @media (max-width: 640px) {
+
   .news-ticker {
     font-size: 0.82rem;
     padding: 9px 12px;
@@ -329,7 +317,6 @@ article img,
   }
 }
 
-/* Personas que prefieren menos movimiento */
 @media (prefers-reduced-motion: reduce) {
   .ticker-track {
     animation: none;
