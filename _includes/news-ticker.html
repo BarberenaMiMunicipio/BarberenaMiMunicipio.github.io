@@ -1,184 +1,32 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
-
-<style>
-  .bmm-ticker {
-    --bmm-red: #e8452a;
-    --bmm-black: #0d0d0d;
-    --bmm-white: #ffffff;
-    --bmm-gray: #9a9a94;
-    display: flex;
-    align-items: stretch;
-    background: var(--bmm-black);
-    border-top: 3px solid var(--bmm-red);
-    height: 42px;
-    font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
-    overflow: hidden;
-  }
-
-  .bmm-ticker__label {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    background: var(--bmm-red);
-    color: var(--bmm-black);
-    font-weight: 700;
-    font-size: 17px;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-  }
-
-  .bmm-ticker__viewport {
-    position: relative;
-    flex: 1 1 auto;
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
-  }
-
-  .bmm-ticker__track {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: max-content;
-    will-change: transform;
-  }
-
-  .bmm-ticker__item {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    padding: 0 28px 0 0;
-    white-space: nowrap;
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--bmm-white);
-    text-decoration: none;
-  }
-
-  .bmm-ticker__item:hover .bmm-ticker__headline {
-    color: var(--bmm-red);
-  }
-
-  .bmm-ticker__dot {
-    flex: 0 0 auto;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1.5px solid var(--bmm-gray);
-    background: transparent;
-  }
-
-  .bmm-ticker__item[data-cat="denuncia"] .bmm-ticker__dot {
-    background: var(--bmm-red);
-    border-color: var(--bmm-red);
-  }
-
-  .bmm-ticker__headline {
-    color: var(--bmm-white);
-    transition: color 0.15s ease;
-  }
-
-  .bmm-ticker__sep {
-    flex: 0 0 auto;
-    color: var(--bmm-gray);
-    font-size: 12px;
-    margin-right: 28px;
-  }
-
-  .bmm-ticker.is-paused .bmm-ticker__track {
-    animation-play-state: paused;
-  }
-
-  @media (max-width: 560px) {
-    .bmm-ticker__label { font-size: 14px; padding: 0 10px; }
-    .bmm-ticker__item { font-size: 15px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .bmm-ticker__track { animation: none !important; transform: none !important; }
-    .bmm-ticker__viewport { overflow-x: auto; }
-  }
-</style>
-
-<div class="bmm-ticker" id="bmm-ticker" role="region" aria-label="Últimas noticias de Barberena Mi Municipio">
-  <div class="bmm-ticker__label">Al día</div>
-  <div class="bmm-ticker__viewport">
-    <div class="bmm-ticker__track" id="bmm-ticker-track"></div>
+<div class="news-ticker">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item">Cargando noticias de Barberena...</span>
   </div>
 </div>
 
 <script>
-(function () {
-  var DATA_URL = "/assets/data/ticker.json";
-  var PIXELS_PER_SECOND = 60; // velocidad del scroll
-
-  var FALLBACK_ITEMS = [
-    { text: "No hay noticias cargadas todavía.", cat: "comunidad", url: "#" }
-  ];
-
-  function buildItemNode(item) {
-    var a = document.createElement("a");
-    a.className = "bmm-ticker__item";
-    a.href = item.url || "#";
-    a.dataset.cat = item.cat || "comunidad";
-
-    var dot = document.createElement("span");
-    dot.className = "bmm-ticker__dot";
-    a.appendChild(dot);
-
-    var text = document.createElement("span");
-    text.className = "bmm-ticker__headline";
-    text.textContent = item.text;
-    a.appendChild(text);
-
-    var sep = document.createElement("span");
-    sep.className = "bmm-ticker__sep";
-    sep.textContent = "◆";
-    a.appendChild(sep);
-
-    return a;
-  }
-
-  function renderTicker(items) {
-    var track = document.getElementById("bmm-ticker-track");
-    var ticker = document.getElementById("bmm-ticker");
-    track.innerHTML = "";
-
-    // Se duplica la lista una vez para que el loop sea continuo.
-    items.concat(items).forEach(function (item) {
-      track.appendChild(buildItemNode(item));
-    });
-
-    // Calcula la duración según el ancho real, para que la velocidad
-    // sea constante sin importar cuántas noticias haya.
-    requestAnimationFrame(function () {
-      var fullWidth = track.scrollWidth / 2;
-      var duration = fullWidth / PIXELS_PER_SECOND;
-
-      var styleId = "bmm-ticker-keyframes";
-      var old = document.getElementById(styleId);
-      if (old) old.remove();
-
-      var style = document.createElement("style");
-      style.id = styleId;
-      style.textContent =
-        "@keyframes bmm-ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-" +
-        fullWidth + "px); } }" +
-        "#bmm-ticker-track { animation: bmm-ticker-scroll " + duration + "s linear infinite; }";
-      document.head.appendChild(style);
-    });
-
-    ticker.addEventListener("mouseenter", function () { ticker.classList.add("is-paused"); });
-    ticker.addEventListener("mouseleave", function () { ticker.classList.remove("is-paused"); });
-    ticker.addEventListener("focusin", function () { ticker.classList.add("is-paused"); });
-    ticker.addEventListener("focusout", function () { ticker.classList.remove("is-paused"); });
-  }
-
-  fetch(DATA_URL)
-    .then(function (res) { if (!res.ok) throw new Error("no data"); return res.json(); })
-    .then(function (items) { renderTicker(items && items.length ? items : FALLBACK_ITEMS); })
-    .catch(function () { renderTicker(FALLBACK_ITEMS); });
-})();
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch('/feed.xml')
+      .then(response => response.text())
+      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+      .then(data => {
+        const items = data.querySelectorAll("item");
+        const track = document.getElementById('tickerTrack');
+        track.innerHTML = ""; // Limpiar texto de carga
+        
+        items.forEach((item, index) => {
+          if (index < 6) { // Limitar a las últimas 6 noticias
+            const title = item.querySelector("title").textContent;
+            const link = item.querySelector("link").textContent;
+            
+            const a = document.createElement('a');
+            a.href = link;
+            a.textContent = title;
+            a.className = "ticker-item";
+            track.appendChild(a);
+          }
+        });
+      })
+      .catch(err => console.error("Error al cargar el feed:", err));
+  });
 </script>
