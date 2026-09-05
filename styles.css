@@ -249,3 +249,50 @@ article img,
   max-height: 220px;
   object-fit: cover;
 }
+
+.news-ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  background: #111;
+  color: #fff;
+  padding: 10px 16px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.9rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 2px solid #e8452a; /* Un toque estético con tu color de acento */
+}
+
+.ticker-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollTicker 30s linear infinite;
+}
+
+/* Pausa el movimiento cuando el usuario pasa el mouse para que pueda leer o hacer clic */
+.news-ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-block;
+  margin-right: 60px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.ticker-item:hover {
+  color: #e8452a;
+  text-decoration: underline;
+}
+
+/* Animación de desplazamiento horizontal continuo */
+@keyframes scrollTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
