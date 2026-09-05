@@ -1,7 +1,7 @@
 ---
 title: MERCADO DE BARBERENA
 date: 2026-09-01
-image: /images/quejas/IMG_20260711_185721.webp
+image: /images/blog/1000032064.webp
 excerpt: Este es el mercado, el corazón de nuestro pueblo. 😊
 ---
 * ![](/images/blog/1000031636.webp)
