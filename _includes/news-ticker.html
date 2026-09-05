@@ -21,9 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
       }
 
-      /*
-       * Creamos un grupo con todas las noticias.
-       */
+      // Crear el primer grupo
       const group = document.createElement('div');
       group.className = 'ticker-group';
 
@@ -42,89 +40,45 @@ document.addEventListener("DOMContentLoaded", function() {
         group.appendChild(a);
       });
 
-      /*
-       * Lo duplicamos para crear un
-       * desplazamiento infinito sin saltos.
-       */
+      // Duplicar el grupo
       const clone = group.cloneNode(true);
-
-      /*
-       * El segundo grupo es visualmente igual,
-       * pero lo ocultamos para lectores de pantalla.
-       */
       clone.setAttribute('aria-hidden', 'true');
 
       track.appendChild(group);
       track.appendChild(clone);
 
-
-      /*
-       * CALCULAR LA VELOCIDAD
-       *
-       * El ticker recorrerá aproximadamente:
-       *
-       * Desktop: 32 píxeles por segundo
-       * Móvil:   24 píxeles por segundo
-       *
-       * Por lo tanto, mientras más texto haya,
-       * más tiempo tardará el recorrido.
-       */
+      // Calcular velocidad
       function calcularVelocidad() {
 
-        const distancia = group.getBoundingClientRect().width;
+        const distancia = group.scrollWidth;
 
-        let pixelesPorSegundo;
-
-        if (window.innerWidth <= 640) {
-          pixelesPorSegundo = 24;
-        } else {
-          pixelesPorSegundo = 32;
-        }
+        // Velocidad cómoda de lectura
+        const pixelesPorSegundo =
+          window.innerWidth <= 640 ? 24 : 32;
 
         let duracion = distancia / pixelesPorSegundo;
 
-        /*
-         * Nunca será demasiado rápido.
-         * Como mínimo tardará 45 segundos.
-         */
+        // Nunca menos de 45 segundos
         duracion = Math.max(duracion, 45);
 
-        track.style.setProperty(
-          '--ticker-duration',
-          duracion + 's'
-        );
+        track.style.animationDuration = duracion + 's';
       }
 
+      // Esperar a que el navegador haya pintado el contenido
+      setTimeout(calcularVelocidad, 100);
 
-      /*
-       * Calculamos la primera vez.
-       */
-      calcularVelocidad();
-
-
-      /*
-       * Si cambia el tamaño de la pantalla,
-       * volvemos a calcular.
-       */
+      // Recalcular al cambiar tamaño
       window.addEventListener('resize', calcularVelocidad);
 
-
-      /*
-       * Esperamos a que carguen las fuentes
-       * para medir correctamente los titulares.
-       */
-      if (document.fonts && document.fonts.ready) {
+      // Recalcular cuando carguen las fuentes
+      if (document.fonts) {
         document.fonts.ready.then(calcularVelocidad);
       }
 
     })
-
     .catch(err => {
 
-      console.error(
-        "Error al cargar el ticker JSON:",
-        err
-      );
+      console.error("Error al cargar el ticker JSON:", err);
 
       document.getElementById('tickerTrack').innerHTML =
         '<span class="ticker-item">Información local al día.</span>';
@@ -132,4 +86,4 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
-        </script>
+</script>
