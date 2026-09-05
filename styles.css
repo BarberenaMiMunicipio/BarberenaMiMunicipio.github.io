@@ -260,23 +260,31 @@ article img,
   font-size: 0.9rem;
   width: 100%;
   box-sizing: border-box;
-  border-bottom: 2px solid #e8452a; /* Un toque estético con tu color de acento */
+  border-bottom: 2px solid #e8452a;
 }
 
 .ticker-track {
-  display: inline-block;
+  display: flex;
+  width: max-content;
   white-space: nowrap;
-  animation: scrollTicker 110s linear infinite;
+
+  /* JavaScript calcula este valor */
+  animation: scrollTicker var(--ticker-duration, 90s) linear infinite;
+
+  will-change: transform;
 }
 
-/* Pausa el movimiento cuando el usuario pasa el mouse para que pueda leer o hacer clic */
-.news-ticker:hover .ticker-track {
-  animation-play-state: paused;
+.ticker-group {
+  display: flex;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .ticker-item {
   display: inline-block;
-  margin-right: 90px;
+  flex-shrink: 0;
+  margin-right: 70px;
+
   color: #fff;
   text-decoration: none;
 }
@@ -286,13 +294,44 @@ article img,
   text-decoration: underline;
 }
 
-/* Animación de desplazamiento horizontal continuo */
+/* Noticias marcadas como denuncia */
+.ticker-denuncia {
+  border-left: 3px solid #e8452a;
+  padding-left: 8px;
+}
+
+/* Pausar al colocar el mouse encima */
+.news-ticker:hover .ticker-track,
+.news-ticker:focus-within .ticker-track {
+  animation-play-state: paused;
+}
+
+/* Animación */
 @keyframes scrollTicker {
-  0% {
+  from {
     transform: translateX(0);
   }
-  100% {
+
+  to {
     transform: translateX(-50%);
   }
 }
 
+/* Móvil */
+@media (max-width: 640px) {
+  .news-ticker {
+    font-size: 0.82rem;
+    padding: 9px 12px;
+  }
+
+  .ticker-item {
+    margin-right: 55px;
+  }
+}
+
+/* Personas que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
