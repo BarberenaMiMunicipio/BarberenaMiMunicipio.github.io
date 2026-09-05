@@ -54,6 +54,21 @@
   {% endunless %}
 
   {% include footer.html %}
+  
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const mobileBurger = document.getElementById('navBurger');
+    const mobileMenu = document.getElementById('navMobile');
 
+    if (mobileBurger && mobileMenu) {
+      mobileBurger.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !expanded);
+        mobileMenu.classList.toggle('active');
+      });
+    }
+  });
+</script>
+  
 </body>
 </html>
