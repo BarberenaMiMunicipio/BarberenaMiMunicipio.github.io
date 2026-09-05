@@ -4,12 +4,6 @@
   </div>
 </div>
 
-<div class="news-ticker">
-  <div class="ticker-track" id="tickerTrack">
-    <span class="ticker-item">Cargando noticias de Barberena...</span>
-  </div>
-</div>
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -58,6 +52,16 @@ document.addEventListener("DOMContentLoaded", function() {
        * bien desde el primer render.
        */
       function calcularVelocidad() {
+        // Si la persona pidió reducir movimiento en su sistema, no
+        // animamos nada — se queda una lista estática y desplazable.
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          const styleId = 'bmm-ticker-keyframes';
+          const anterior = document.getElementById(styleId);
+          if (anterior) anterior.remove();
+          track.closest('.news-ticker').style.overflowX = 'auto';
+          return;
+        }
+
         const distancia = track.scrollWidth / 2; // una sola "vuelta" de noticias
 
         const pixelesPorSegundo =
