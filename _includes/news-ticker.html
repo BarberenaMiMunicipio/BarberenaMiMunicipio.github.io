@@ -6,27 +6,35 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    fetch('/feed.xml')
-      .then(response => response.text())
-      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+    fetch('/assets/data/ticker.json')
+      .then(response => response.json())
       .then(data => {
-        const items = data.querySelectorAll("item");
         const track = document.getElementById('tickerTrack');
         track.innerHTML = ""; // Limpiar texto de carga
         
-        items.forEach((item, index) => {
-          if (index < 6) { // Limitar a las últimas 6 noticias
-            const title = item.querySelector("title").textContent;
-            const link = item.querySelector("link").textContent;
-            
-            const a = document.createElement('a');
-            a.href = link;
-            a.textContent = title;
-            a.className = "ticker-item";
-            track.appendChild(a);
+        if (data.length === 0) {
+          track.innerHTML = '<span class="ticker-item">No hay noticias recientes en este momento.</span>';
+          return;
+        }
+
+        data.forEach(item => {
+          const a = document.createElement('a');
+          a.href = item.url;
+          a.textContent = item.text;
+          a.className = "ticker-item";
+          
+          // Opcional: si quieres marcar de otro color las de tipo "denuncia"
+          if (item.cat === "denuncia") {
+            a.style.borderLeft = "3px solid #e8452a";
+            a.style.paddingLeft = "8px";
           }
+          
+          track.appendChild(a);
         });
       })
-      .catch(err => console.error("Error al cargar el feed:", err));
+      .catch(err => {
+        console.error("Error al cargar el ticker JSON:", err);
+        document.getElementById('tickerTrack').innerHTML = '<span class="ticker-item">Información local al día.</span>';
+      });
   });
 </script>
