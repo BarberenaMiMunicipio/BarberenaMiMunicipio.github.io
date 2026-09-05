@@ -267,9 +267,6 @@ article img,
   display: inline-block;
   white-space: nowrap;
 
-  /* La duración será calculada por JavaScript */
-  animation: scrollTicker var(--ticker-duration, 90s) linear infinite;
-}
 
 .ticker-item {
   display: inline-block;
@@ -295,15 +292,6 @@ article img,
   animation-play-state: paused;
 }
 
-@keyframes scrollTicker {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
 
 @media (max-width: 640px) {
 
@@ -314,11 +302,5 @@ article img,
 
   .ticker-item {
     margin-right: 55px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ticker-track {
-    animation: none;
   }
 }
