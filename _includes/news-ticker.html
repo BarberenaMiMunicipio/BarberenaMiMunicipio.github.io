@@ -21,38 +21,42 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
       }
 
-      // Crear el primer grupo
-      const group = document.createElement('div');
-      group.className = 'ticker-group';
-
+      // Crear las noticias
       data.forEach(item => {
 
         const a = document.createElement('a');
 
         a.href = item.url;
         a.textContent = item.text;
-        a.className = 'ticker-item';
+        a.className = "ticker-item";
 
         if (item.cat === "denuncia") {
-          a.classList.add('ticker-denuncia');
+          a.classList.add("ticker-denuncia");
         }
 
-        group.appendChild(a);
+        track.appendChild(a);
       });
 
-      // Duplicar el grupo
-      const clone = group.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
+      // Duplicar las noticias para crear el bucle
+      const items = Array.from(track.children);
 
-      track.appendChild(group);
-      track.appendChild(clone);
+      items.forEach(item => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      });
 
-      // Calcular velocidad
+      /*
+       * Calculamos cuánto texto existe.
+       *
+       * Mientras más contenido haya,
+       * más tiempo tardará el recorrido.
+       */
       function calcularVelocidad() {
 
-        const distancia = group.scrollWidth;
+        const distancia = track.scrollWidth / 2;
 
-        // Velocidad cómoda de lectura
+        // Velocidad cómoda para lectura
         const pixelesPorSegundo =
           window.innerWidth <= 640 ? 24 : 32;
 
@@ -61,24 +65,31 @@ document.addEventListener("DOMContentLoaded", function() {
         // Nunca menos de 45 segundos
         duracion = Math.max(duracion, 45);
 
-        track.style.animationDuration = duracion + 's';
+        track.style.setProperty(
+          '--ticker-duration',
+          duracion + 's'
+        );
       }
 
-      // Esperar a que el navegador haya pintado el contenido
+      // Calcular al cargar
       setTimeout(calcularVelocidad, 100);
 
-      // Recalcular al cambiar tamaño
+      // Recalcular si cambia el tamaño
       window.addEventListener('resize', calcularVelocidad);
 
       // Recalcular cuando carguen las fuentes
-      if (document.fonts) {
+      if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(calcularVelocidad);
       }
 
     })
+
     .catch(err => {
 
-      console.error("Error al cargar el ticker JSON:", err);
+      console.error(
+        "Error al cargar el ticker JSON:",
+        err
+      );
 
       document.getElementById('tickerTrack').innerHTML =
         '<span class="ticker-item">Información local al día.</span>';
@@ -86,4 +97,4 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
-</script>
+        </script>  
