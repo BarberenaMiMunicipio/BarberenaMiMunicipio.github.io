@@ -5,42 +5,131 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    fetch('/assets/data/ticker.json')
-      .then(response => response.json())
-      .then(data => {
-        const track = document.getElementById('tickerTrack');
-        track.innerHTML = ""; // Limpiar texto de carga
-        
-        if (data.length === 0) {
-          track.innerHTML = '<span class="ticker-item">No hay noticias recientes en este momento.</span>';
-          return;
+document.addEventListener("DOMContentLoaded", function() {
+
+  fetch('/assets/data/ticker.json')
+    .then(response => response.json())
+    .then(data => {
+
+      const track = document.getElementById('tickerTrack');
+
+      track.innerHTML = "";
+
+      if (data.length === 0) {
+        track.innerHTML =
+          '<span class="ticker-item">No hay noticias recientes en este momento.</span>';
+        return;
+      }
+
+      /*
+       * Creamos un grupo con todas las noticias.
+       */
+      const group = document.createElement('div');
+      group.className = 'ticker-group';
+
+      data.forEach(item => {
+
+        const a = document.createElement('a');
+
+        a.href = item.url;
+        a.textContent = item.text;
+        a.className = 'ticker-item';
+
+        if (item.cat === "denuncia") {
+          a.classList.add('ticker-denuncia');
         }
 
-        // Función para poblar los elementos
-        const renderItems = () => {
-          data.forEach(item => {
-            const a = document.createElement('a');
-            a.href = item.url;
-            a.textContent = item.text;
-            a.className = "ticker-item";
-            
-            if (item.cat === "denuncia") {
-              a.style.borderLeft = "3px solid #e8452a";
-              a.style.paddingLeft = "8px";
-            }
-            
-            track.appendChild(a);
-          });
-        };
-
-        // Duplicamos los elementos para lograr el efecto de bucle infinito perfecto
-        renderItems();
-        renderItems(); 
-      })
-      .catch(err => {
-        console.error("Error al cargar el ticker JSON:", err);
-        document.getElementById('tickerTrack').innerHTML = '<span class="ticker-item">Información local al día.</span>';
+        group.appendChild(a);
       });
-  });
-</script>
+
+      /*
+       * Lo duplicamos para crear un
+       * desplazamiento infinito sin saltos.
+       */
+      const clone = group.cloneNode(true);
+
+      /*
+       * El segundo grupo es visualmente igual,
+       * pero lo ocultamos para lectores de pantalla.
+       */
+      clone.setAttribute('aria-hidden', 'true');
+
+      track.appendChild(group);
+      track.appendChild(clone);
+
+
+      /*
+       * CALCULAR LA VELOCIDAD
+       *
+       * El ticker recorrerá aproximadamente:
+       *
+       * Desktop: 32 píxeles por segundo
+       * Móvil:   24 píxeles por segundo
+       *
+       * Por lo tanto, mientras más texto haya,
+       * más tiempo tardará el recorrido.
+       */
+      function calcularVelocidad() {
+
+        const distancia = group.getBoundingClientRect().width;
+
+        let pixelesPorSegundo;
+
+        if (window.innerWidth <= 640) {
+          pixelesPorSegundo = 24;
+        } else {
+          pixelesPorSegundo = 32;
+        }
+
+        let duracion = distancia / pixelesPorSegundo;
+
+        /*
+         * Nunca será demasiado rápido.
+         * Como mínimo tardará 45 segundos.
+         */
+        duracion = Math.max(duracion, 45);
+
+        track.style.setProperty(
+          '--ticker-duration',
+          duracion + 's'
+        );
+      }
+
+
+      /*
+       * Calculamos la primera vez.
+       */
+      calcularVelocidad();
+
+
+      /*
+       * Si cambia el tamaño de la pantalla,
+       * volvemos a calcular.
+       */
+      window.addEventListener('resize', calcularVelocidad);
+
+
+      /*
+       * Esperamos a que carguen las fuentes
+       * para medir correctamente los titulares.
+       */
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(calcularVelocidad);
+      }
+
+    })
+
+    .catch(err => {
+
+      console.error(
+        "Error al cargar el ticker JSON:",
+        err
+      );
+
+      document.getElementById('tickerTrack').innerHTML =
+        '<span class="ticker-item">Información local al día.</span>';
+
+    });
+
+});
+        </script>
