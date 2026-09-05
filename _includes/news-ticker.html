@@ -17,20 +17,26 @@
           return;
         }
 
-        data.forEach(item => {
-          const a = document.createElement('a');
-          a.href = item.url;
-          a.textContent = item.text;
-          a.className = "ticker-item";
-          
-          // Opcional: si quieres marcar de otro color las de tipo "denuncia"
-          if (item.cat === "denuncia") {
-            a.style.borderLeft = "3px solid #e8452a";
-            a.style.paddingLeft = "8px";
-          }
-          
-          track.appendChild(a);
-        });
+        // Función para poblar los elementos
+        const renderItems = () => {
+          data.forEach(item => {
+            const a = document.createElement('a');
+            a.href = item.url;
+            a.textContent = item.text;
+            a.className = "ticker-item";
+            
+            if (item.cat === "denuncia") {
+              a.style.borderLeft = "3px solid #e8452a";
+              a.style.paddingLeft = "8px";
+            }
+            
+            track.appendChild(a);
+          });
+        };
+
+        // Duplicamos los elementos para lograr el efecto de bucle infinito perfecto
+        renderItems();
+        renderItems(); 
       })
       .catch(err => {
         console.error("Error al cargar el ticker JSON:", err);
